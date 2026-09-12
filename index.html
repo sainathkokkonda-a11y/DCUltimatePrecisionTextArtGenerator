@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Precision Text Art Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="tool-card">
+  <div class="card-header">
+    <h1>Precision Text Art Calibrator Pro</h1>
+    <p>Calibrate Grid Dimensions & Fine-Tune Photo Details for Social Media Comments</p>
+  </div>
+
+  <div class="card-body">
+
+    <!-- Step 1: Calibration Ruler -->
+    <div class="step-group">
+      <label class="step-label">Step 1: Calibration (Test Dots in Comment Box)</label>
+      <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+        <button class="btn-secondary" id="copyTestBtn">Copy Test Line</button>
+        <span id="testCopyMsg" style="font-size: 12px; color: #2e7d32; font-weight: bold;"></span>
+      </div>
+      <textarea id="testerBox" class="tester-area" readonly>................................................................................</textarea>
+    </div>
+
+    <!-- Step 2: Upload Image -->
+    <div class="step-group">
+      <label class="step-label">Step 2: Upload Photo</label>
+      <input type="file" id="imageInput" accept="image/*" class="custom-input">
+    </div>
+
+    <!-- Step 3: Grid & Dimensions Controls -->
+    <div class="step-group">
+      <label class="step-label">Step 3: Grid Dimensions & Stretch Adjustment</label>
+      <div class="control-grid">
+        <div>
+          <label style="font-size: 12px; font-weight: bold; color: #555;">Max Width (Dots Counted):</label>
+          <input type="number" id="customWidth" class="custom-input" value="30" min="10" max="150">
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: bold; color: #555;">Height Stretch Fix (Aspect Ratio):</label>
+          <input type="range" id="aspectStretch" min="0.30" max="0.60" step="0.02" value="0.45" style="width:100%;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Fine Tuning Controls -->
+    <div class="step-group">
+      <label class="step-label">Step 4: Image & Light Controls (Fine Tuning)</label>
+
+      <div class="control-grid" style="margin-bottom: 12px;">
+        <div>
+          <label style="font-size: 12px; font-weight: bold; color: #555;">Brightness (-100 to +100):</label>
+          <input type="range" id="brightness" min="-100" max="100" value="0" style="width:100%;">
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: bold; color: #555;">Sensitivity / Threshold:</label>
+          <input type="range" id="threshold" min="30" max="220" value="120" style="width:100%;">
+        </div>
+      </div>
+
+      <div class="control-grid">
+        <div>
+          <label style="font-size: 12px; font-weight: bold; color: #555;">Color Mode:</label>
+          <select id="invertMode" class="custom-select">
+            <option value="normal" selected>Normal Mode</option>
+            <option value="invert">Invert Colors</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: bold; color: #555;">Render Style:</label>
+          <select id="renderStyle" class="custom-select">
+            <option value="single" selected>Single Symbol</option>
+            <option value="shading">Multi-Shading Dots (░▒▓█)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Symbol Customization -->
+    <div class="step-group">
+      <label class="step-label">Step 5: Symbol & Background</label>
+      <div class="control-grid">
+        <div>
+          <label style="font-size: 12px; font-weight: bold; color: #555;">Draw Symbol:</label>
+          <input type="text" id="customSymbol" class="custom-input" value="." maxlength="2">
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: bold; color: #555;">Blank Space Character:</label>
+          <select id="spaceType" class="custom-select">
+            <option value=" " selected>Standard Space (" ")</option>
+            <option value="&#8203;">Invisible Space (Insta Safe)</option>
+            <option value="⠀">Braille Blank (⠀)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Output Section -->
+    <div class="step-group" style="background: transparent; border: none; padding: 0;">
+      <label class="step-label">Generated Text Art Output</label>
+      <textarea id="artOutput" readonly placeholder="Upload image & adjust controls to render..."></textarea>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="btn-group">
+      <button class="btn btn-primary" id="generateBtn">Re-Generate Art</button>
+      <button class="btn btn-success" id="copyBtn">Copy Precision Art</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
